@@ -11,33 +11,10 @@
     device: "DC-FW-Forti-CNI-FG-08-16"
     vdom: "FGT-EW"
   tasks:
-    - name: Install for policy package
-      fmgr_securityconsole_install_package:
-        bypass_validation: False
-        workspace_locking_adom: root
-        workspace_locking_timeout: 300
-        rc_succeeded: [0, -2, -3, ...]
-        rc_failed: [-2, -3, ...]
-        securityconsole_install_package:
-          adom: root
-          adom_rev_comments: "ansible"
-          adom_rev_name: "ansible"
-          dev_rev_comments: "ansible"
-          flags:
-            - none
-            - cp_all_objs
-            - preview
-            - generate_rev
-            - copy_assigned_pkg
-            - unassign
-            - ifpolicy_only
-            - no_ifpolicy
-            - objs_only
-            - auto_lock_ws
-            - check_pkg_st
-            - copy_only
-          pkg: DC-FW-Forti-CNI-FG-08-16_FGT-EW
-          scope:
-            - name: DC-FW-Forti-CNI-FG-08-16
-            - vdom: "{{ vdom }}"
-      register: r
+    - name: INSTALL PACKAGE
+      fmgr_fwpol_package:
+        mode: "set"
+        adom: "{{ adom }}"
+        name: "{{ pkg }}"
+        object_type: "install"
+        scope_members: "{{ device }}"
