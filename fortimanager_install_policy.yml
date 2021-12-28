@@ -14,7 +14,7 @@
   tasks:
     - name: Install for policy package
       fmgr_securityconsole_install_package:
-        securityconsole_install_package:
+        #securityconsole_install_package:
           adom: "{{ adom }}"
           pkg: "{{ pkg }}"
           scope:
