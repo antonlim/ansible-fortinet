@@ -2,6 +2,7 @@
   hosts: DC-MGT-Forti-CNI-FMG-21
   connection: httpapi
   collections: fortinet.fortimanager
+
   vars:
     ansible_httpapi_use_ssl: True
     ansible_httpapi_validate_certs: False
@@ -10,6 +11,7 @@
     pkg: "DC-FW-Forti-CNI-FG-08-16_FGT-EW"
     device: "DC-FW-Forti-CNI-FG-08-16"
     vdom: "FGT-EW"
+
   tasks:
     - name: Install for policy package {{ adom }}/{{ pkg }} [preview mode]
       fmgr_securityconsole_install_package:
@@ -20,35 +22,5 @@
           pkg: "{{ pkg }}"
           scope:
             - name: "{{ device }}"
-              vdom: "{{ vdom }}"
-
-    - name: Poll the task
-      fmgr_fact:
-        facts:
-          selector: 'task_task'
-    
-    - name: Trigger the preview report generation for policy package {{ adom }}/{{ pkg }}
-      fmgr_securityconsole_install_preview:
-        securityconsole_install_preview:
-          adom: "{{ adom }}"
-          device: "{{ device }}"
-          flags:
-            - json
-          vdoms: "{{ vdom }}"
-
-    - name: Poll the task
-      fmgr_fact:
-        facts:
-          selector: 'task_task'
-      register: taskinfo
-
-    - name: Get the preview report for policy package {{ adom }}/{{ pkg }}
-      fmgr_securityconsole_preview_result:
-        securityconsole_preview_result:
-           adom: "{{ adom }}"
-           device: "{{ device }}"
-
-    - name: Cancel install task for policy package {{ adom }}/{{ pkg }}
-      fmgr_securityconsole_package_cancel_install:
-        securityconsole_package_cancel_install:
-          adom: "{{ adom }}"
+              vdom: root
+      register: r
