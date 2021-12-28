@@ -21,17 +21,12 @@
           scope:
             - name: "{{ device }}"
               vdom: "{{ vdom }}"
-      register: r
+
     - name: Poll the task
       fmgr_fact:
         facts:
           selector: 'task_task'
-          #params:
-            #task: '{{ r.meta.response_data.task }}'
-      register: taskinfo
-      until: taskinfo.meta.response_data.percent == 100
-      retries: 30
-      delay: 5
+    
     - name: Trigger the preview report generation for policy package {{ adom }}/{{ pkg }}
       fmgr_securityconsole_install_preview:
         securityconsole_install_preview:
@@ -40,27 +35,20 @@
           flags:
             - json
           vdoms: "{{ vdom }}"
-      register: r
+
     - name: Poll the task
       fmgr_fact:
         facts:
           selector: 'task_task'
-          #params:
-            #task: '{{ r.meta.response_data.task }}'
       register: taskinfo
-      until: taskinfo.meta.response_data.percent == 100
-      retries: 30
-      delay: 5
+
     - name: Get the preview report for policy package {{ adom }}/{{ pkg }}
       fmgr_securityconsole_preview_result:
         securityconsole_preview_result:
            adom: "{{ adom }}"
            device: "{{ device }}"
-      register: r
+
     - name: Cancel install task for policy package {{ adom }}/{{ pkg }}
       fmgr_securityconsole_package_cancel_install:
         securityconsole_package_cancel_install:
           adom: "{{ adom }}"
-    - name: Show preview report
-      debug:
-        msg: "{{ r }}"
