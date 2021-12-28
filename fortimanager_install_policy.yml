@@ -19,7 +19,7 @@
         rc_succeeded: [0, -2, -3, ...]
         rc_failed: [-2, -3, ...]
         securityconsole_install_package:
-          adom: "{{ adom }}"
+          adom: root
           adom_rev_comments: "ansible"
           adom_rev_name: "ansible"
           dev_rev_comments: "ansible"
