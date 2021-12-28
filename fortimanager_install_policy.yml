@@ -39,5 +39,5 @@
           pkg: "{{ pkg }}"
           scope:
             - name: "{{ device }}"
-              vdom: "{{ vdom }}"
+            - vdom: "{{ vdom }}"
       register: r
