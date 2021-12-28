@@ -15,8 +15,3 @@
            selector: 'system_admin_user_adom'
            params:
                user: 'admin' # userid
-<<<<<<< HEAD
-               adom: 'root'
-=======
-               adom: 'root'
->>>>>>> 21cf8c32c173f6068f013a00f0a423b0aa893b92
