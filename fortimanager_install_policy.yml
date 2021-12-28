@@ -26,8 +26,8 @@
       fmgr_fact:
         facts:
           selector: 'task_task'
-          params:
-            task: '{{ r.meta.response_data.task }}'
+          #params:
+            #task: '{{ r.meta.response_data.task }}'
       register: taskinfo
       until: taskinfo.meta.response_data.percent == 100
       retries: 30
@@ -45,8 +45,8 @@
       fmgr_fact:
         facts:
           selector: 'task_task'
-          params:
-            task: '{{ r.meta.response_data.task }}'
+          #params:
+            #task: '{{ r.meta.response_data.task }}'
       register: taskinfo
       until: taskinfo.meta.response_data.percent == 100
       retries: 30
