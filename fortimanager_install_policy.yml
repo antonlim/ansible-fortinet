@@ -38,5 +38,6 @@
               - copy_only
             pkg: "{{ pkg }}"
             scope:
-              #- name: "{{ device }}"
-              - vdom: "{{ vdom }}"
+              - 
+                name: "{{ device }}"
+                vdom: "{{ vdom }}"
