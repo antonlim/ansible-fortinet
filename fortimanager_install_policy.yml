@@ -14,7 +14,7 @@
     - name: Install for policy package
       fmgr_securityconsole_install_package:
         bypass_validation: False
-        workspace_locking_adom: "{{ adom }}"
+        workspace_locking_adom: root
         workspace_locking_timeout: 300
         rc_succeeded: [0, -2, -3, ...]
         rc_failed: [-2, -3, ...]
@@ -36,8 +36,8 @@
             - auto_lock_ws
             - check_pkg_st
             - copy_only
-          pkg: "{{ pkg }}"
+          pkg: DC-FW-Forti-CNI-FG-08-16_FGT-EW
           scope:
-            - name: "{{ device }}"
-            - vdom: "{{ vdom }}"
+            - name: DC-FW-Forti-CNI-FG-08-16
+            - vdom: FGT-EW
       register: r
