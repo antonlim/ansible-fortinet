@@ -18,6 +18,6 @@
           adom: "{{ adom }}"
           pkg: "{{ pkg }}"
           scope:
-            - name: "{{ device }}"
-              vdom: "{{ vdom }}"
+            name: "{{ device }}"
+            vdom: "{{ vdom }}"
       #register: r
