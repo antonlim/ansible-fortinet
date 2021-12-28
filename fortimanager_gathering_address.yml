@@ -14,5 +14,5 @@
        facts:
            selector: 'firewall_address'
            params:
-               adom: 'ansible'
+               adom: 'root'
                address: ''
