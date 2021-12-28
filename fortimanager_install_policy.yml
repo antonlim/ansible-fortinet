@@ -1,5 +1,4 @@
-- name: INSTALL PREVIEW - POLICY PACKAGE
-  hosts: DC-MGT-Forti-CNI-FMG-21
+- hosts: DC-MGT-Forti-CNI-FMG-21
   connection: httpapi
   collections: fortinet.fortimanager
 
@@ -15,7 +14,7 @@
   tasks:
     - name: Install for policy package
       fmgr_securityconsole_install_package:
-        - securityconsole_install_package:
+        securityconsole_install_package:
           adom: "{{ adom }}"
           pkg: "{{ pkg }}"
           scope:
