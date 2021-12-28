@@ -3,6 +3,9 @@
   connection: httpapi
   collections: fortinet.fortimanager
   vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
     adom: root
     ppkg: DC-FW-Forti-CNI-FG-08-16_FGT-EW
     device: DC-FW-Forti-CNI-FG-08-16
