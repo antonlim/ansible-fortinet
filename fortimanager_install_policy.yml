@@ -8,7 +8,7 @@
     device: DC-FW-Forti-CNI-FG-08-16
     vdom: FGT-EW
   tasks:
-    - name: Install for policy package {{ adom }}/{{ ppkg }} [preview mode]
+    - name: Install for policy package {{ adom }}/{{ ppkg }}
       fmgr_securityconsole_install_package:
         securityconsole_install_package:
           adom: "{{ adom }}"
