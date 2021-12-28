@@ -13,14 +13,12 @@
     vdom: "FGT-EW"
 
   tasks:
-    - name: Install for policy package {{ adom }}/{{ pkg }} [preview mode]
+    - name: Install for policy package
       fmgr_securityconsole_install_package:
         securityconsole_install_package:
           adom: "{{ adom }}"
-          flags:
-             - preview
           pkg: "{{ pkg }}"
           scope:
             - name: "{{ device }}"
               vdom: root
-      #register: r
+      register: r
