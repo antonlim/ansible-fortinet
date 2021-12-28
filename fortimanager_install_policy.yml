@@ -39,5 +39,5 @@
           pkg: DC-FW-Forti-CNI-FG-08-16_FGT-EW
           scope:
             - name: DC-FW-Forti-CNI-FG-08-16
-            - vdom: "FGT-EW [NAT]"
+            - vdom: "DC-FW-Forti-CNI-FG-08-16_FGT-EW"
       register: r
