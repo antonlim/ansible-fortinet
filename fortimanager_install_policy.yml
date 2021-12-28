@@ -19,5 +19,5 @@
           pkg: "{{ pkg }}"
           scope:
             - name: "{{ device }}"
-              vdom: root
+              vdom: "{{ vdom }}"
       #register: r
