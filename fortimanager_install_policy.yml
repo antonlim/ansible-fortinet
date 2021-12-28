@@ -22,5 +22,5 @@
            adom: "{{ adom }}"
            scope:
              -
-                 name: "{{ device }}"
+                 name: "{{ pkg }}"
                  vdom: "{{ vdom }}"
