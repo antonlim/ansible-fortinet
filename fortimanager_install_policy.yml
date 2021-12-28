@@ -1,7 +1,7 @@
 - hosts: DC-MGT-Forti-CNI-FMG-21
   connection: httpapi
-  collections: fortinet.fortimanager
-
+  collections: 
+    - fortinet.fortimanager
   vars:
     ansible_httpapi_use_ssl: True
     ansible_httpapi_validate_certs: False
@@ -10,15 +10,13 @@
     pkg: "DC-FW-Forti-CNI-FG-08-16_FGT-EW"
     device: "DC-FW-Forti-CNI-FG-08-16"
     vdom: "FGT-EW"
-
   tasks:
     - name: Install for policy package
       fmgr_securityconsole_install_package:
-        #securityconsole_install_package:
-          state: present
+        securityconsole_install_package:
           adom: "{{ adom }}"
           pkg: "{{ pkg }}"
-          #scope:
-            #name: "{{ device }}"
-            #vdom: "{{ vdom }}"
-      #register: r
+          scope:
+            name: "{{ device }}"
+            vdom: "{{ vdom }}"
+      register: r
