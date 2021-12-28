@@ -20,6 +20,6 @@
            helper: auto #<value in [disable, auto, ftp, ...]>
            name: 'tcp_9000'
            protocol: TCP/UDP/SCTP #<value in [ICMP, IP, TCP/UDP/SCTP, ...]>
-           proxy: disable #<value in [disable, enable]>
+           proxy: disable #disable for firewall type
            tcp-portrange: "9000"
-           visibility: enable #<value in [disable, enable]>
+           visibility: enable 

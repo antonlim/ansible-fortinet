@@ -1,0 +1,18 @@
+- hosts: DC-MGT-Forti-CNI-FMG-21
+  collections:
+    - fortinet.fortimanager
+  connection: httpapi
+  vars:
+     ansible_httpapi_use_ssl: True
+     ansible_httpapi_validate_certs: False
+     ansible_httpapi_port: 443
+     adom: root
+     service-name: tcp_9000 #input service name
+  tasks:
+   - name: Configure custom services.
+     fmgr_firewall_service_custom:
+        bypass_validation: False
+        adom: 
+        state: absent
+        firewall_service_custom:
+           name: "{{ service-name }}"
