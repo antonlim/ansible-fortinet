@@ -15,8 +15,10 @@
       fmgr_securityconsole_install_package:
         securityconsole_install_package:
           adom: "{{ adom }}"
+          flags:
+            - preview
           pkg: "{{ pkg }}"
         scope:
-          name: "{{ device }}"
-          vdom: "{{ vdom }}"
+          - name: "{{ device }}"
+            vdom: "{{ vdom }}"
       register: r
