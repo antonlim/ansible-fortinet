@@ -1,7 +1,7 @@
-- hosts: DC-MGT-Forti-CNI-FMG-21
-  collections:
-    - fortinet.fortimanager
+- name: INSTALL PREVIEW - POLICY PACKAGE
+  hosts: DC-MGT-Forti-CNI-FMG-21
   connection: httpapi
+  collections: fortinet.fortimanager
   vars:
     ansible_httpapi_use_ssl: True
     ansible_httpapi_validate_certs: False
@@ -11,33 +11,56 @@
     device: "DC-FW-Forti-CNI-FG-08-16"
     vdom: "FGT-EW"
   tasks:
-    - name: Copy and install a policy package to devices.
+    - name: Install for policy package {{ adom }}/{{ pkg }} [preview mode]
       fmgr_securityconsole_install_package:
-         bypass_validation: False
-         workspace_locking_adom: "{{ adom }}"
-         workspace_locking_timeout: 300
-         rc_succeeded: [0, -2, -3, ...]
-         rc_failed: [-2, -3, ...]
-         securityconsole_install_package:
-            adom: "{{ adom }}"
-            adom_rev_comments: "comment ansible"
-            adom_rev_name: "rev ansible"
-            dev_rev_comments: "dev rev ansible"
-            flags:
-              - none
-              - cp_all_objs
-              - preview
-              - generate_rev
-              - copy_assigned_pkg
-              - unassign
-              - ifpolicy_only
-              - no_ifpolicy
-              - objs_only
-              - auto_lock_ws
-              - check_pkg_st
-              - copy_only
-            pkg: "{{ pkg }}"
-            scope:
-              - 
-                name: "{{ adom }}"
-                vdom: "{{ vdom }}"
+        securityconsole_install_package:
+          adom: "{{ adom }}"
+          flags:
+             - preview
+          pkg: "{{ pkg }}"
+          scope:
+            - name: "{{ device }}"
+              vdom: "{{ vdom }}"
+      register: r
+    - name: Poll the task
+      fmgr_fact:
+        facts:
+          selector: 'task_task'
+          params:
+            task: '{{ r.meta.response_data.task }}'
+      register: taskinfo
+      until: taskinfo.meta.response_data.percent == 100
+      retries: 30
+      delay: 5
+    - name: Trigger the preview report generation for policy package {{ adom }}/{{ pkg }}
+      fmgr_securityconsole_install_preview:
+        securityconsole_install_preview:
+          adom: "{{ adom }}"
+          device: "{{ device }}"
+          flags:
+            - json
+          vdoms: "{{ vdom }}"
+      register: r
+    - name: Poll the task
+      fmgr_fact:
+        facts:
+          selector: 'task_task'
+          params:
+            task: '{{ r.meta.response_data.task }}'
+      register: taskinfo
+      until: taskinfo.meta.response_data.percent == 100
+      retries: 30
+      delay: 5
+    - name: Get the preview report for policy package {{ adom }}/{{ pkg }}
+      fmgr_securityconsole_preview_result:
+        securityconsole_preview_result:
+           adom: "{{ adom }}"
+           device: "{{ device }}"
+      register: r
+    - name: Cancel install task for policy package {{ adom }}/{{ pkg }}
+      fmgr_securityconsole_package_cancel_install:
+        securityconsole_package_cancel_install:
+          adom: "{{ adom }}"
+    - name: Show preview report
+      debug:
+        msg: "{{ r }}"
