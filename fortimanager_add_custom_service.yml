@@ -16,10 +16,10 @@
         firewall_service_custom:
            app-service-type: disable #<value in [disable, app-id, app-category]>
            color: 1
-           comment: 'comment'
+           comment: 'Create by Ansible'
            helper: auto #<value in [disable, auto, ftp, ...]>
            name: 'tcp_9000'
            protocol: TCP/UDP/SCTP #<value in [ICMP, IP, TCP/UDP/SCTP, ...]>
-           proxy: enable #<value in [disable, enable]>
+           proxy: disable #<value in [disable, enable]>
            tcp-portrange: 9000
            visibility: enable #<value in [disable, enable]>
