@@ -1,5 +1,0 @@
----
-- host: all
-  tasks:
-  - name: external ip
-    debug: msg="{{morpheus['server']['externalIp']}}"
