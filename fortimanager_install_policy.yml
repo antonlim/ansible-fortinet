@@ -1,20 +1,26 @@
 - hosts: DC-MGT-Forti-CNI-FMG-21
-  connection: httpapi
-  collections: 
+  collections:
     - fortinet.fortimanager
+  connection: httpapi
   vars:
-    ansible_httpapi_use_ssl: True
-    ansible_httpapi_validate_certs: False
-    ansible_httpapi_port: 443
-    adom: "root"
-    pkg: "DC-FW-Forti-CNI-FG-08-16_FGT-EW"
-    device: "DC-FW-Forti-CNI-FG-08-16"
-    vdom: "FGT-EW"
+     ansible_httpapi_use_ssl: True
+     ansible_httpapi_validate_certs: False
+     ansible_httpapi_port: 443
+     adom: "root"
+     pkg: "DC-FW-Forti-CNI-FG-08-16_FGT-EW"
+     device: "DC-FW-Forti-CNI-FG-08-16"
+     vdom: "FGT-EW"
   tasks:
-    - name: INSTALL PACKAGE
-      fmgr_fwpol_package:
-        mode: "set"
-        adom: "{{ adom }}"
-        name: "{{ pkg }}"
-        object_type: "install"
-        scope_members: "{{ device }}"
+   - name: Install policies to device from preview cache.
+     fmgr_securityconsole_package_commit:
+        bypass_validation: False
+        workspace_locking_adom: "{{ adom }}"
+        workspace_locking_timeout: 300
+        rc_succeeded: [0, -2, -3, ...]
+        rc_failed: [-2, -3, ...]
+        securityconsole_package_commit:
+           adom: "{{ adom }}"
+           scope:
+             -
+                 name: "{{ device }}"
+                 vdom: "{{ vdom }}"
