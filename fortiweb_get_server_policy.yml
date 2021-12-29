@@ -1,9 +1,11 @@
 - hosts: FortiWeb
   connection: httpapi
-  
+
   tasks:
     - name: Get Server Policy
       uri:
+        follow_redirects: none
+        validate_certs: false
         url: https://10.1.117.18/api/v2.0/policy/policystatus
         method: GET
         body_format: json
