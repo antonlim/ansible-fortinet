@@ -13,7 +13,7 @@
   tasks:
     - name: Copy and install a policy package to devices.
       fmgr_securityconsole_install_package:
-        bypass_validation: False
+        bypass_validation: True
         securityconsole_install_package:
           adom: root
           adom_rev_comments: ansible-comment
