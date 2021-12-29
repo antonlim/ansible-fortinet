@@ -15,10 +15,10 @@
       fmgr_securityconsole_install_package:
         bypass_validation: False
         securityconsole_install_package:
-          #adom: ""
-          #adom_rev_comments: ansible-comment
-          #adom_rev_name: ansible-test
-          #dev_rev_comments: ansible-comment
+          adom: ""
+          adom_rev_comments: ansible-comment
+          adom_rev_name: ansible-test
+          dev_rev_comments: ansible-comment
           flags:
             - none
             - cp_all_objs
@@ -35,5 +35,5 @@
           pkg: "{{ pkg }}"
           scope:
             -
-                name: "{{ device }}"
-                vdom: "{{ vdom }}"
+              name: "{{ device }}"
+              vdom: "{{ vdom }}"
