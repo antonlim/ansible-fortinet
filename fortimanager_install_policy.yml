@@ -1,16 +1,16 @@
-- hosts: DC-MGT-Forti-CNI-FMG-21
-   collections:
-     - fortinet.fortimanager
-   connection: httpapi
-   vars:
-      ansible_httpapi_use_ssl: True
-      ansible_httpapi_validate_certs: False
-      ansible_httpapi_port: 443
-      adom: "root"
-      pkg: "DC-FW-Forti-CNI-FG-08-16_FGT-EW"
-      device: "DC-FW-Forti-CNI-FG-08-16"
-      vdom: "FGT-EW"
-   tasks:
+- collections:
+    - fortinet.fortimanager
+  hosts: DC-MGT-Forti-CNI-FMG-21
+  connection: httpapi
+  vars:
+    ansible_httpapi_use_ssl: True
+    ansible_httpapi_validate_certs: False
+    ansible_httpapi_port: 443
+    adom: "root"
+    pkg: "DC-FW-Forti-CNI-FG-08-16_FGT-EW"
+    device: "DC-FW-Forti-CNI-FG-08-16"
+    vdom: "FGT-EW"
+  tasks:
     - name: Copy and install a policy package to devices.
       fmgr_securityconsole_install_package:
          bypass_validation: False
