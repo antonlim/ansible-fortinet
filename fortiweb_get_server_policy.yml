@@ -1,12 +1,14 @@
-- tasks:
-  - name: Get Server Policy
-  uri:
-    url: https://10.1.117.18/api/v2.0/policy/policystatus
-    method: GET
-    body_format: json
-    headers:
-      Authorization: "eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJQQHNzdzByZCIsInZkb20iOiJyb290In0="
-      Accept: "application/json"
+- connection: httpapi
+  hosts: FortiWeb
+  tasks:
+    - name: Get Server Policy
+    uri:
+      url: https://10.1.117.18/api/v2.0/policy/policystatus
+      method: GET
+      body_format: json
+      headers:
+        Authorization: "eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJQQHNzdzByZCIsInZkb20iOiJyb290In0="
+        Accept: "application/json"
 
 #curl -k --location -g --request GET 'https://10.1.117.18/api/v2.0/policy/policystatus' \
 #--header 'Authorization: eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJQQHNzdzByZCIsInZkb20iOiJyb290In0=' \
