@@ -15,7 +15,7 @@
       fmgr_securityconsole_install_package:
         bypass_validation: False
         securityconsole_install_package:
-          adom: ""
+          adom: root
           adom_rev_comments: ansible-comment
           adom_rev_name: ansible-test
           dev_rev_comments: ansible-comment
