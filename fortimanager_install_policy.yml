@@ -50,5 +50,5 @@
            adom: root
            scope:
              -
-                 name: "{{ device }}"
+                 name: "{{ pkg }}"
                  vdom: "{{ vdom }}"
