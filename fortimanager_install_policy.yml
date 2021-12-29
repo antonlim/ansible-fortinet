@@ -11,33 +11,6 @@
     device: "DC-FW-Forti-CNI-FG-08-16"
     vdom: "FGT-EW"
   tasks:
-    - name: Copy and install a policy package to devices.
-      fmgr_securityconsole_install_package:
-        bypass_validation: True
-        securityconsole_install_package:
-          adom: root
-          adom_rev_comments: ansible-comment
-          adom_rev_name: ansible-test
-          dev_rev_comments: ansible-comment
-          flags:
-            - none
-            - cp_all_objs
-            - preview
-            - generate_rev
-            - copy_assigned_pkg
-            - unassign
-            - ifpolicy_only
-            - no_ifpolicy
-            - objs_only
-            - auto_lock_ws
-            - check_pkg_st
-            - copy_only
-          pkg: "{{ pkg }}"
-          scope:
-            -
-              name: "{{ device }}"
-              vdom: "{{ vdom }}"
-
     - name: Install policies to device from preview cache.
       #fmgr_securityconsole_install_package:
       fmgr_securityconsole_package_commit:
@@ -50,5 +23,5 @@
            adom: root
            scope:
              -
-                 name: "{{ pkg }}"
-                 vdom: "{{ vdom }}"
+                 name: "{{ device }}"
+                 vdom: "{{ adom }}"
