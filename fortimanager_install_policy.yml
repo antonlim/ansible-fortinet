@@ -12,7 +12,6 @@
     vdom: "FGT-EW"
   tasks:
     - name: Install policies to device from preview cache.
-      #fmgr_securityconsole_install_package:
       fmgr_securityconsole_package_commit:
         bypass_validation: True
         workspace_locking_adom: "{{ adom }}"
