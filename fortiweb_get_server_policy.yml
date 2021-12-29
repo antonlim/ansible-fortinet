@@ -12,6 +12,10 @@
         headers:
           Authorization: "eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJQQHNzdzByZCIsInZkb20iOiJyb290In0="
           Accept: "application/json"
+        register: __result
+    - name: Print Server Policy response
+      debug:
+        var: __result
 
 #curl -k --location -g --request GET 'https://10.1.117.18/api/v2.0/policy/policystatus' \
 #--header 'Authorization: eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJQQHNzdzByZCIsInZkb20iOiJyb290In0=' \
