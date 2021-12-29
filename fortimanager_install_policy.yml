@@ -13,7 +13,7 @@
   tasks:
    - name: Install policies to device from preview cache.
      fmgr_securityconsole_package_commit:
-        bypass_validation: False
+        bypass_validation: True
         workspace_locking_adom: "{{ adom }}"
         workspace_locking_timeout: 300
         rc_succeeded: [0, -2, -3, ...]
