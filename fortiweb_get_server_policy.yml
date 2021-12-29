@@ -1,4 +1,4 @@
-tasks:
+- tasks:
   - name: Get Server Policy
   uri:
     url: https://10.1.117.18/api/v2.0/policy/policystatus
