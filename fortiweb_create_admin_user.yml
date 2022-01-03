@@ -9,7 +9,7 @@
         return_content: yes
         url: https://10.1.117.18/api/v2.0/system/admin.administrators
         method: POST
-        data-raw:
+        body:
           name: "psi_anton"
           type: "local"
           password: "test1234"
