@@ -11,7 +11,7 @@
         method: POST
         body: 
             data-raw:
-                name: "test_psi"
+                #name: "test_psi"
                 #type: "local"
                 #password: "pass"
                 #confirmPassword: "pass"
