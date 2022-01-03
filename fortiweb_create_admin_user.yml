@@ -7,7 +7,7 @@
         follow_redirects: none
         validate_certs: false
         return_content: yes
-        url: https://10.1.117.18/api/v2.0/system/admin.administrators'
+        url: https://10.1.117.18/api/v2.0/system/admin.administrators
         method: POST
         body:
           name: "psi_anton"
