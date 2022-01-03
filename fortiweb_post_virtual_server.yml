@@ -11,8 +11,6 @@
         method: POST
         body:
           name: "VS-Test2"
-          vip:
-            ip: "10.1.125.5\\/32"
           interface: "port4"
         body_format: json
         headers:
