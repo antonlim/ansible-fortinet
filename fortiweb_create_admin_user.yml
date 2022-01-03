@@ -13,8 +13,8 @@
             data-raw:
                 name: "test_psi"
                 type: "local"
-                password: "test123"
-                confirmPassword": "test123"
+                password: "P@ssw0rd"
+                confirmPassword": "P@ssw0rd"
                 accessProfile: "prof_admin"
         body_format: json
         headers:
