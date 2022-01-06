@@ -7,7 +7,7 @@
         follow_redirects: none
         validate_certs: false
         return_content: yes
-        url: https://10.1.117.18/api/v2.0/log/logreport.reportconfig.runnow?report={{report_name}}
+        url: https://10.1.117.18/api/v2.0/log/logreport.reportconfig.runnow?report=Report_1
         method: GET
         body_format: json
         headers:
