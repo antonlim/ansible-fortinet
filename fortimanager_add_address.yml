@@ -16,3 +16,4 @@
         allow-routing: disable
         associated-interface: any
         name: 'ansible-test1'
+        subenet: '123.123.123.123/32'
