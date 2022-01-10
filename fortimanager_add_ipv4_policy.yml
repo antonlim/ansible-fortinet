@@ -20,11 +20,11 @@
            comments: ansible-comment
            dstaddr: db_openstack1
            dstintf: port7
-           name: ansible-test-policy
+           name: "Deny AWS to Internal"
            nat: disable
            policyid: 1
            schedule: always
            service: "ALL_ICMP"
            srcaddr: php_aws1
            srcintf: port7
-           status: enable
+           status: disable
