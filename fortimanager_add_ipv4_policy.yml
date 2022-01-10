@@ -7,7 +7,7 @@
      ansible_httpapi_validate_certs: False
      ansible_httpapi_port: 443
      adom: "root"
-     pkg: "DC-FW-Forti-CNI-FG-08-16_FGT-EW"
+     pkg: "DC-FW-Forti-CNI-FG-08-16_FGT-NS"
   tasks:
    - name: Configure IPv4 policies.
      fmgr_pkg_firewall_policy:
@@ -16,15 +16,15 @@
         pkg: "{{ pkg }}" # package name
         state: present
         pkg_firewall_policy:
-           action: accept #<value in [deny, accept, ipsec, ...]>
+           action: deny #<value in [deny, accept, ipsec, ...]>
            comments: ansible-comment
-           dstaddr: all
-           dstintf: any
+           dstaddr: db_openstack1
+           dstintf: port7
            name: ansible-test-policy
            nat: disable
-           policyid: 7
+           policyid: 1
            schedule: always
-           service: ALL
-           srcaddr: all
-           srcintf: any
-           status: disable
+           service: "ALL_ICMP"
+           srcaddr: php_aws1
+           srcintf: port7
+           status: enable
