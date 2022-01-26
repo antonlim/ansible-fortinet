@@ -10,12 +10,13 @@
         url: https://10.1.117.18:90/api/v1.0/ServerObjects/Server/VirtualServer
         method: POST
         body:
-          name: "VS-Test4"
+          name: "VS-Test6"
           interface: "port4"
-          ipv4Address: "5.5.5.5/255.255.255.255"
+          ipv4Address: "8.8.8.8/255.255.255.255"
           ipv6Address: "::/0"
           status: "true"
           useInterfaceIP: "false"
+          vip: "VIP-Test"
         body_format: json
         headers:
           Authorization: "YWRtaW46UEBzc3cwcmQ="
