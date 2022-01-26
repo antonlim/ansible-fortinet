@@ -10,11 +10,10 @@
         url: https://10.1.117.18:90/api/v1.0/ServerObjects/Server/VirtualServer
         method: POST
         body:
-          name: "VS-Test15"
-          #interface: "port4"
+          name: "VS-Test20"
+          interface: "port4"
           ipv4Address: "8.8.8.8 255.255.255.255"
           #ipv6Address: "::/0"
-          count: "1"
           enable: "true"
           useInterfaceIP: "false"
           can_delete: "true"
