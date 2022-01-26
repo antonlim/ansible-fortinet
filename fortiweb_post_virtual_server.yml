@@ -7,14 +7,17 @@
         follow_redirects: none
         validate_certs: false
         return_content: yes
-        url: https://10.1.117.18/api/v2.0/policy/serverobjects.server.virtualserver
+        url: https://10.1.117.18:90/api/v1.0/ServerObjects/Server/VirtualServer
         method: POST
         body:
           name: "VS-Test2"
           interface: "port4"
+          ipv4Address: "1.1.1.1/255.255.255.255"
+          status: "true"
+          useInterfaceIP: "false"
         body_format: json
         headers:
-          Authorization: "eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJQQHNzdzByZCIsInZkb20iOiJyb290In0="
+          Authorization: "YWRtaW46UEBzc3cwcmQ="
           Accept: "application/json"
       register: __result
     - name: Print Virtual Server
