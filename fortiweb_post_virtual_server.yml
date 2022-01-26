@@ -14,6 +14,7 @@
           interface: "port4"
           #ipv4Address: "8.8.8.8/255.255.255.255"
           #ipv6Address: "::/0"
+          count: "1"
           status: "true"
           #useInterfaceIP: "false"
           vip:
