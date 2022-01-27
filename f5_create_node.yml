@@ -1,0 +1,40 @@
+- hosts: F5
+  connection: httpapi
+
+  tasks:
+    - name: Create Node
+      uri:
+        follow_redirects: none
+        validate_certs: false
+        return_content: yes
+        url: https://10.1.117.22/mgmt/tm/ltm/node
+        method: POST
+        body:  
+          kind: "tm:ltm:node:nodestate"
+          name: "20.20.20.20"
+          partition: "Common"
+          fullPath: "/Common/20.20.20.20"
+          generation: 1
+          address: "20.20.20.20"
+          connectionLimit: 0
+          dynamicRatio: 1
+          ephemeral: "false"
+          fqdn:
+            addressFamily: "ipv4"
+            autopopulate: "disabled"
+            downInterval: 5
+            interval: "3600"
+          logging: "disabled"
+          monitor: "default"
+          rateLimit: "disabled"
+          ratio: 1
+          session: "monitor-enabled"
+          state: "up"
+        body_format: json
+        headers:
+          Authorization: "Basic YWRtaW46UEBzc3cwcmQxMjM="
+          Accept: "application/json"
+      register: __result
+    - name: Create Node
+      debug:
+        var: __result.content
