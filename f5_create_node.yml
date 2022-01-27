@@ -28,7 +28,6 @@
           monitor: "default"
           rateLimit: "disabled"
           ratio: 1
-          session: "monitor-enabled"
           state: "up"
         body_format: json
         headers:
