@@ -10,25 +10,9 @@
         url: https://10.1.117.22/mgmt/tm/ltm/node
         method: POST
         body:  
-          kind: "tm:ltm:node:nodestate"
           name: "20.20.20.20"
           partition: "Common"
-          fullPath: "/Common/20.20.20.20"
-          generation: 1
           address: "20.20.20.20"
-          connectionLimit: 0
-          dynamicRatio: 1
-          ephemeral: "false"
-          fqdn:
-            addressFamily: "ipv4"
-            autopopulate: "disabled"
-            downInterval: 5
-            interval: "3600"
-          logging: "disabled"
-          monitor: "default"
-          rateLimit: "disabled"
-          ratio: 1
-          state: "up"
         body_format: json
         headers:
           Authorization: "Basic YWRtaW46UEBzc3cwcmQxMjM="
