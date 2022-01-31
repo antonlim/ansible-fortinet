@@ -28,3 +28,4 @@
            srcaddr: vm_aws
            srcintf: port7
            status: disable
+           logtraffic: "ALL"
