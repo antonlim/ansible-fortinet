@@ -18,13 +18,14 @@
         pkg_firewall_policy:
            action: deny #<value in [deny, accept, ipsec, ...]>
            comments: ansible-comment
-           dstaddr: db_openstack1
+           dstaddr: vm_openstack
            dstintf: port7
            name: "Deny AWS to Internal"
            nat: disable
            policyid: 1
            schedule: always
            service: "ALL_ICMP"
-           srcaddr: php_aws1
+           srcaddr: vm_aws
            srcintf: port7
            status: disable
+           logtraffic: all
