@@ -15,8 +15,8 @@
       firewall_address:
         allow-routing: disable
         associated-interface: any
-        name: 'php_aws1'
-        subnet: '10.1.73.176/32'
+        name: 'vm_aws'
+        subnet: '10.1.73.53/32'
 
   - name: Configure IPv4 addresses
     fmgr_firewall_address: #destination
@@ -26,5 +26,5 @@
       firewall_address:
         allow-routing: disable
         associated-interface: any
-        name: 'db_openstack1'
-        subnet: '10.1.123.5/32'
+        name: 'vm_openstack'
+        subnet: '10.1.123.127/32'
